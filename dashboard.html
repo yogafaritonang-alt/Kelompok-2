@@ -1,104 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Pengaturan Meta Data (Sekarang menggunakan self-closing /> untuk menghindari error JSX) -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Pengaturan Meta Data W3C Valid (Tanpa trailing slash) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Ed Sheeran Tarutung</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Icon Bootstrap untuk visualisasi menu dan kartu -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
-    <!-- Google Font Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- Link CSS Custom -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Memanggil CSS Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Custom -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-light">
+
+    <!-- TOMBOL TOGGLE KHUSUS MOBILE (< 768px) -->
+    <!-- Header ini hanya muncul di mobile (d-md-none) untuk memunculkan/menyembunyikan sidebar -->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow d-md-none">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 fw-bold" href="#">ADMIN PANEL</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar (Sisi Kiri, col-md-3) -->
-            <nav class="col-md-3 col-lg-2 sidebar d-md-block collapse border-end shadow" id="sidebarMenu">
-                <div class="brand-logo text-center">
-                    <span class="text-info">ED</span>SHEERAN <br />
-                    <small class="fw-light fs-6 text-white-50">ADMIN PANEL</small>
+            <!-- SIDEBAR: Sesuai kriteria (col-md-3, background gelap, teks putih, bisa di-collapse di mobile) -->
+            <nav id="sidebarMenu" class="col-md-3 d-md-block bg-dark text-white sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <!-- Logo / Brand di Sidebar (Disembunyikan di header mobile agar tidak ganda) -->
+                    <div class="brand-logo text-center d-none d-md-block pb-3 mb-4 border-bottom border-secondary">
+                        <span class="text-info fs-4 fw-bold">ED</span><span class="fs-4 fw-bold">SHEERAN</span><br>
+                        <small class="fw-light text-white-50">ADMIN PANEL</small>
+                    </div>
+
+                    <!-- Menu Navigasi Vertikal -->
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link-custom active" aria-current="page" href="#">
+                                <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-custom" href="#">
+                                <i class="bi bi-ticket-perforated me-2"></i> Penjualan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-custom" href="#">
+                                <i class="bi bi-people me-2"></i> Data Pengunjung
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Menu Keluar di bawah -->
+                    <ul class="nav flex-column mt-5 pt-3 border-top border-secondary">
+                        <li class="nav-item">
+                            <a class="nav-link-custom text-danger" href="index.html">
+                                <i class="bi bi-box-arrow-left me-2"></i> Keluar Web
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                
-                <!-- Navigasi Menu Vertikal -->
-                <nav class="nav flex-column mb-4">
-                    <a class="nav-link-custom active" href="#"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-                    <a class="nav-link-custom" href="#"><i class="bi bi-ticket-perforated me-2"></i> Penjualan</a>
-                    <a class="nav-link-custom" href="#"><i class="bi bi-people me-2"></i> Data Pengunjung</a>
-                    <a class="nav-link-custom mt-4 text-danger" href="index.html"><i class="bi bi-box-arrow-left me-2"></i> Keluar</a>
-                </nav>
             </nav>
 
-            <!-- Bagian Konten Utama (Sisi Kanan, col-md-9) -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
-                <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-4 border-bottom">
-                    <h2 class="fw-bold">Statistik Penjualan Tiket</h2>
+            <!-- KONTEN UTAMA: Sesuai kriteria (col-md-9) -->
+            <main class="col-md-9 ms-sm-auto px-md-4 main-content">
+                <div class="d-flex justify-content-between flex-wrap align-items-center pt-4 pb-2 mb-4 border-bottom">
+                    <!-- H1 untuk standar hierarki SEO W3C -->
+                    <h1 class="fw-bold h2">Statistik Penjualan Tiket</h1>
                 </div>
 
-                <!-- Bagian Kartu Statistik (Kriteria Tugas 3: Minimal 4 kartu) -->
+                <!-- KARTU STATISTIK (Minimal 4) -->
                 <div class="row g-3 mb-5">
-                    <!-- Kartu: Total Pengguna -->
                     <div class="col-6 col-md-3">
-                        <div class="card card-stat bg-primary text-white p-3 shadow-sm">
+                        <div class="card card-stat bg-primary text-white p-3 shadow-sm h-100">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <i class="bi bi-people-fill fs-3"></i>
                                 <span class="badge bg-white text-primary">+12%</span>
                             </div>
-                            <h3 class="fw-bold">1.240</h3>
+                            <div class="fs-3 fw-bold">1.240</div>
                             <small>Total Pendaftar</small>
                         </div>
                     </div>
                     
-                    <!-- Kartu: Total Penjualan -->
                     <div class="col-6 col-md-3">
-                        <div class="card card-stat bg-success text-white p-3 shadow-sm">
+                        <div class="card card-stat bg-success text-white p-3 shadow-sm h-100">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <i class="bi bi-cash-stack fs-3"></i>
                                 <span class="badge bg-white text-success">+8.5%</span>
                             </div>
-                            <h3 class="fw-bold">2.4M</h3>
-                            <small>Total Penjualan (IDR)</small>
+                            <div class="fs-3 fw-bold">2.4M</div>
+                            <small>Total Penjualan</small>
                         </div>
                     </div>
                     
-                    <!-- Kartu: Sisa Tiket -->
                     <div class="col-6 col-md-3">
-                        <div class="card card-stat bg-warning text-dark p-3 shadow-sm">
+                        <div class="card card-stat bg-warning text-dark p-3 shadow-sm h-100">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <i class="bi bi-ticket-perforated fs-3"></i>
                                 <span class="badge bg-dark text-white">-2%</span>
                             </div>
-                            <h3 class="fw-bold">450</h3>
-                            <small>Sisa Stok Tiket</small>
+                            <div class="fs-3 fw-bold">450</div>
+                            <small>Sisa Tiket</small>
                         </div>
                     </div>
                     
-                    <!-- Kartu: Target Capaian -->
                     <div class="col-6 col-md-3">
-                        <div class="card card-stat bg-info text-white p-3 shadow-sm">
+                        <div class="card card-stat bg-info text-white p-3 shadow-sm h-100">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <i class="bi bi-graph-up-arrow fs-3"></i>
                                 <span class="badge bg-white text-info">90%</span>
                             </div>
-                            <h3 class="fw-bold">85%</h3>
+                            <div class="fs-3 fw-bold">85%</div>
                             <small>Target Capaian</small>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bagian Tabel Data Pengunjung (Kriteria Tugas 3: Table striped, hover, responsive) -->
-                <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+                <!-- TABEL DATA (10 Baris, Aksi, Hover, Striped, Responsive) -->
+                <div class="card shadow-sm border-0 rounded-4 overflow-hidden mb-5">
                     <div class="card-header bg-white py-3 border-bottom">
-                        <h5 class="mb-0 fw-bold"><i class="bi bi-list-task me-2 text-primary"></i>Daftar Pendaftar Terbaru</h5>
+                        <!-- H2 melanjutkan hierarki dari H1 di atas -->
+                        <h2 class="mb-0 fw-bold h5"><i class="bi bi-list-task me-2 text-primary"></i>Daftar Pendaftar Terbaru</h2>
                     </div>
                     
-                    <!-- Pembungkus Tabel agar Responsif di Layar Kecil -->
                     <div class="table-responsive">
                         <table class="table table-striped table-hover mb-0 align-middle">
                             <thead class="table-light">
@@ -110,7 +139,7 @@
                                     <th class="text-center">Aksi Manajemen</th>
                                 </tr>
                             </thead>
-                            <!-- Baris tabel diisi otomatis oleh JavaScript -->
+                            <!-- Data akan dimuat otomatis oleh JavaScript -->
                             <tbody id="pendaftarTable"></tbody>
                         </table>
                     </div>
@@ -121,30 +150,17 @@
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Script untuk Menghasilkan Baris Tabel Contoh (Minimal 10 baris) -->
     <script>
-        // Memastikan DOM siap sebelum menjalankan script
+        // DOMContentLoaded memastikan script berjalan setelah HTML dirender penuh
         document.addEventListener('DOMContentLoaded', function() {
             const table = document.getElementById('pendaftarTable');
-            
-            // Daftar nama asli untuk pendaftar
             const daftarNama = [
-                "Frido Tobing",
-                "Cristana Sihombing",
-                "Yoga Aritonang",
-                "Thabita Simatupang",
-                "Loly Manalu",
-                "Daniel Simbolon",
-                "Veronika Purba",
-                "Andrey Sinaga",
-                "Andre Nababan",
-                "Marsel Sihombing"
+                "Frido Tobing", "Cristiana Sihombing", "Yoga Aritonang", "Thabita Simatupang", "Loly Manalu",
+                "Andrey Pentus", "Daniel Simbolon", "Veronika Purba", "Rafi Simanjuntak", "Lina Manullang"
             ];
 
-            // Melakukan perulangan untuk membuat 10 baris data
+            // Loop 10x untuk membuat 10 baris data sesuai array daftarNama
             for(let i=0; i<daftarNama.length; i++) {
-                // Penentuan status pendaftar secara selang-seling
                 const statusText = i % 4 === 0 ? 'Inactive' : 'Active';
                 const badgeClass = statusText === 'Active' ? 'bg-success' : 'bg-secondary';
                 
@@ -158,6 +174,7 @@
                         <td>${i % 2 === 0 ? 'Premium (VVIP)' : 'Standard (VIP)'}</td>
                         <td><span class="badge ${badgeClass} rounded-pill px-3">${statusText}</span></td>
                         <td class="text-center">
+                            <!-- Tombol Edit & Hapus -->
                             <button class="btn btn-sm btn-outline-primary border-0" title="Edit Data"><i class="bi bi-pencil-square"></i></button>
                             <button class="btn btn-sm btn-outline-danger border-0" title="Hapus Data"><i class="bi bi-trash"></i></button>
                         </td>
